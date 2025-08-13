@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherNow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.13.0"
+  }
+}
+</script>
+
+<script>
+  self.API_KEY = "YOUR_GEMINI_API_KEY";
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>WeatherNow</h1>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <form id="search-form" role="search">
+                    <input type="text" id="city-input" placeholder="Enter city name..." aria-label="City Name">
+                    <button type="submit" aria-label="Search">🔍</button>
+                    <button type="button" id="location-btn" aria-label="Use my location">📍</button>
+                </form>
+            </section>
+            
+            <div id="loader" class="loader" role="status" aria-live="polite" style="display: none;"></div>
+            <div id="error-message" class="error-message" role="alert" style="display: none;"></div>
+
+            <div id="weather-content" style="display: none;">
+                <section id="current-weather" aria-labelledby="current-weather-heading">
+                    <h2 id="current-weather-heading" class="visually-hidden">Current Weather</h2>
+                    <div class="location-details">
+                        <h3 id="city-name"></h3>
+                        <p id="current-date"></p>
+                    </div>
+                    <div class="weather-details">
+                        <div class="temperature">
+                            <span id="current-temp"></span>
+                            <span id="current-weather-icon"></span>
+                        </div>
+                        <p id="current-weather-description"></p>
+                    </div>
+                    <div class="extra-info">
+                        <div>
+                            <p>Feels Like</p>
+                            <p id="feels-like"></p>
+                        </div>
+                        <div>
+                            <p>Humidity</p>
+                            <p id="humidity"></p>
+                        </div>
+                        <div>
+                            <p>Wind Speed</p>
+                            <p id="wind-speed"></p>
+                        </div>
+                        <div>
+                            <p>Sunrise</p>
+                            <p id="sunrise"></p>
+                        </div>
+                        <div>
+                            <p>Sunset</p>
+                            <p id="sunset"></p>
+                        </div>
+                        <div>
+                            <p>Pressure</p>
+                            <p id="pressure"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="forecast" aria-labelledby="forecast-heading">
+                    <h2 id="forecast-heading">5-Day Forecast</h2>
+                    <div id="forecast-cards" class="forecast-cards"></div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Akshay Kakade | <a href="/Feedback" target="_blank" rel="noopener noreferrer">Give Feedback</a></p>
+        </footer>
+    </div>
+    <script type="module" src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "WeatherNow",
+  "description": "A weather app that shows the current weather and a 5-day forecast using Google Gemini.",
+  "requestFramePermissions": []
+}
